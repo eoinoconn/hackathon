@@ -18,16 +18,10 @@ class PersonAPI(object):
     #time in seconds after which notification will be sent
     time_limit_for_sitting = 180
 
-
     def __init__(self, present_=None, emotions_=None):
-        start = time.time()
-        print("hello")
-        end = time.time()
-        print(end - start)
-
+        //main loop?
         while self.keep_going:
-            
-
+            keep_going = False
 
     def notificiation_builder(self, emotion_=None, presence_=None):
         """
@@ -45,7 +39,7 @@ class PersonAPI(object):
         self.timer_current = time.time() - self.timer_started;
         return self.timer_current
     
-    def reset_timer(self0):
+    def reset_timer(self):
         self.timer_started=time.time()
 
     def set_emotions(self,emo_):
