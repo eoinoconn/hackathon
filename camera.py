@@ -4,8 +4,8 @@
 import io
 import time
 
-from picamera import PiCamera
-from picamera.array import PiRGBArray
+#from picamera import PiCamera
+#from picamera.array import PiRGBArray
 import cv2 # debug only
 import numpy as np
 
@@ -14,10 +14,16 @@ class Camera():
     """
 
     def __init__(self):
-        self.camera = PiCamera()
+        #self.camera = PiCamera()
+        self.cam = cv2.VideoCapture(0)
         
 
-    def get_image(self, countdown=True):
+    def get_image_2(self):
+        ret, frame = self.cam.read()
+        #cv2.imshow("test", frame)
+        return frame
+
+    def get_image(self):
         """ Method to capture and return image
 
         return:
@@ -36,6 +42,6 @@ class Camera():
 
 if __name__ == "__main__":
     camera = Camera()
-    image = camera.get_image()
+    image = camera.get_image_2()
     cv2.imshow("Figure", image)
     cv2.waitKey(0)
