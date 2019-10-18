@@ -17,7 +17,7 @@ class Camera():
         self.camera = PiCamera()
         
 
-    def get_image(self):
+    def get_image(self, countdown=True):
         """ Method to capture and return image
 
         return:
@@ -25,10 +25,14 @@ class Camera():
         """
         self.rawCapture = PiRGBArray(self.camera)
         time.sleep(0.1)
+        print("ready")
+        time.sleep(1)
+        print("set")
+        time.sleep(1)
         self.camera.capture(self.rawCapture, format='bgr')
         image = self.rawCapture.array
         
-        return np.array(image)
+        return np.flipud(np.array(image))
 
 if __name__ == "__main__":
     camera = Camera()

@@ -10,10 +10,20 @@ class Inference():
 
 
     def infer(self):
-        img = cv2.imread("./test_im_blank.jpg")
+        camera = Camera()
+        img = camera.get_image()
+        cv2.imwrite("test.jpeg", img)
         detector = FER()
         result = detector.detect_emotions(img)
-        return result
+        
+        if not result:
+            return False, None
+        else:
+            # only looking at the first face found, check largest face in ideal world
+            happy = result[0]['emotions']['happy']
+            sad = result[0]['emotions']['sad']
+            overall_happiness = (1.0+(happy-sad))/2.0
+            return True, overall_happiness
 
 if __name__ == "__main__":
     infer = Inference().infer()

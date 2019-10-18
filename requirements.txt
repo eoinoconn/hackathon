@@ -1,5 +1,4 @@
-opencv-python
-Pillow
-tensorflow==1.14
-opencv-contrib-python==3.4.2.17
+tensorflow==1.13.1
+#opencv-contrib-python==3.4.2.17
 fer
+picamera

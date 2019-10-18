@@ -14,8 +14,8 @@ SCRIPT_HOME=$(cd $(dirname $0)/.. ; pwd)
 VENV=/tmp/emote-dev-env
 
 if [ ! -d $VENV ]; then
-    pip install virtualenv
-    virtualenv --python python $VENV
+    #pip3 install virtualenv
+    virtualenv --python python3 $VENV
 fi
 
 $VENV/bin/pip install \
