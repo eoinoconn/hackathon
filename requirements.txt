@@ -1,0 +1,4 @@
+tensorflow==1.14
+#opencv-contrib-python==3.4.2.17
+fer
+requests
